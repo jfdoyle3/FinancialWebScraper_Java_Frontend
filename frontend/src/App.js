@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import FinancialWebScraper from "./FinancialWebScraper/Components/FinancialWebScraper.jsx";
 import './App.css';
 

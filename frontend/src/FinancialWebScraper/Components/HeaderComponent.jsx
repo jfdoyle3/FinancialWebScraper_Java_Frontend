@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {Navbar, Nav, Button, Form, FormControl} from 'react-bootstrap';
 //import { Link } from "react-router-dom";
 
 //import { Navbar, NavItem } from "react-materialize";
@@ -11,45 +12,18 @@ class HeaderComponent extends Component {
   
 
     return (
-      <div className="navbar-fixed">
-        <nav>
-          <div className="nav-wrapper">
-            <a href="#!">Logo</a>
-
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-           
-                <li>
-                 {/* // <Link to="/welcome/user">Home</Link> */}
-                 <p>Home</p>
-                </li>
-           
-            
-                <li>
-                {/* //  <Link to="/cryptocurrenices">Currencies</Link> */}
-                <p>item 2</p>
-                </li>
-           
-            </ul>
-          
-            <ul>
-        
-                <li>
-                {/* //  <Link to="/login">Login</Link> */}
-                <p>item 3</p>
-                </li>
-            
-             
-                <li>
-                  {/* <Link to="/logout" onClick={AuthenticationService.logout}>
-                    Logout
-                  </Link> */}
-                  <p>item 4</p>
-                </li>
-            
-            </ul>
-          </div>
-        </nav>
-      </div>
+      <Navbar bg="dark" variant="dark">
+      <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+      <Nav className="mr-auto">
+        <Nav.Link href="#home">Home</Nav.Link>
+        <Nav.Link href="#features">Features</Nav.Link>
+        <Nav.Link href="#pricing">Pricing</Nav.Link>
+      </Nav>
+      <Form inline>
+        <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+        <Button variant="outline-info">Search</Button>
+      </Form>
+    </Navbar>
     );
   }
 }
