@@ -2,11 +2,6 @@ import React, { Component } from "react";
 import {Navbar, Nav, Button, Form, FormControl} from 'react-bootstrap';
 //import { Link } from "react-router-dom";
 
-//import { Navbar, NavItem } from "react-materialize";
-// import "../Styling/css/Header.css";
-
-//import "../Styling/css/Header.css";
-
 class HeaderComponent extends Component {
   render() {
   
