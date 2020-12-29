@@ -1,9 +1,9 @@
 import axios from "axios";
-import { API_URL } from "../Constants.js";
+import { API_URL } from "../../Constants.js";
 
 class StockDataServices {
   retrieveStocks() {
-    return axios.get(`${API_URL}/test-bean`);
+    return axios.get(`${API_URL}/testing-bean`);
     }
 
 

@@ -1,7 +1,25 @@
 import React, { Component } from "react";
 import {Button} from 'react-bootstrap';
+import StockDataServices from "../API/StockDataServices.js";
 
 class ScraperPage extends Component {
+  constructor(props){
+  super(props);
+  this.state={
+    line: this.props.line
+  };
+}
+   componentDidMount() {
+    
+  StockDataServices.retrieveStocks().then(
+    (response) =>
+  //    console.log(response));
+      this.setState({
+         line: response.data.message,
+  
+     })
+   );
+}
     render() {
       return (
         <main>
@@ -20,7 +38,7 @@ class ScraperPage extends Component {
                   <td>
                     <img/>
                   </td>
-                  <td>item 1</td>
+                  <td>{this.state.line}</td>
                   <td>item 2</td>
                   <td>item 3</td>
                   <td>
