@@ -62,15 +62,3 @@ class ScraperPage extends Component {
 }
 
 export default ScraperPage;
-
-
-
-// Stock layout:
-// symbol: this.symbol,
-// lastPrice: this.lastPrice,
-// avgvol: "45.677M"
-// changePercentage: "-0.63%"
-// marketCap: "110.425B"
-// marketTime: "4:00PM EST"
-// priceChange: "-0.58"
-// volume: "24.931M"
