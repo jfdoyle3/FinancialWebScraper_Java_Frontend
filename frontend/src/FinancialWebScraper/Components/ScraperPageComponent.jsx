@@ -8,18 +8,14 @@ class ScraperPage extends Component {
   this.state={
     stocks: [],
   };
+  this.scrape = this.scrape.bind(this);
 }
-   componentDidMount() {
-    
+componentDidMount() {
   StockDataServices.retrieveStocks().then(
     (response) =>
     this.setState({ stocks: response.data }));
-    
-   //   console.log(response));
-      // this.setState({
-      //    line: response.data.message,
-     // })
- //  );
+}
+scrape() {
 }
     render() {
       return (
@@ -57,7 +53,7 @@ class ScraperPage extends Component {
           </table>
         </div>
         <div>
-          <button>Scrape</button>
+          <button  onClick={() => this.scrape()}>Scrape</button>
         </div>
       </main>
     );
