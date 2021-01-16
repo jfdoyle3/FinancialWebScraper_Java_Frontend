@@ -56,6 +56,9 @@ class ScraperPage extends Component {
             </tbody>
           </table>
         </div>
+        <div>
+          <button>Scrape</button>
+        </div>
       </main>
     );
   }
