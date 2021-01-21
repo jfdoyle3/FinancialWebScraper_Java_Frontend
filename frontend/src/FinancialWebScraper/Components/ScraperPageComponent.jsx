@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import {Button} from 'react-bootstrap';
 import StockDataServices from "../API/StockDataServices.js";
+import { Spinner } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 class ScraperPage extends Component {
   constructor(props){
@@ -8,18 +11,14 @@ class ScraperPage extends Component {
   this.state={
     stocks: [],
   };
+  this.scrape = this.scrape.bind(this);
 }
-   componentDidMount() {
-    
-  StockDataServices.retrieveStocks().then(
-    (response) =>
-    this.setState({ stocks: response.data }));
-    
-   //   console.log(response));
-      // this.setState({
-      //    line: response.data.message,
-     // })
- //  );
+componentDidMount() {
+  // StockDataServices.retrieveStocks().then(
+  //   (response) =>
+  //   this.setState({ stocks: response.data }));
+}
+scrape() {
 }
     render() {
       return (
@@ -56,6 +55,14 @@ class ScraperPage extends Component {
             </tbody>
           </table>
         </div>
+        <div>
+          <button  onClick={() => this.scrape()}>Scrape</button>
+        </div>
+        <div>
+      <Spinner animation="border" role="status">
+        <span className="sr-only">Loading...</span>
+      </Spinner>
+    </div >
       </main>
     );
   }
