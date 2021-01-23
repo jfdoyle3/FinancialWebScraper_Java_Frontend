@@ -10,7 +10,7 @@ class ScraperPage extends Component {
   super(props);
   this.state={
     stocks: [],
-    loading: false
+    loading: true
   };
   this.scrape = this.scrape.bind(this);
 }
@@ -24,7 +24,11 @@ scrape() {
     render() {
       let data;
       if (this.state.loading){
-        data=<p>Loading</p>
+        data=  <div>
+        <Spinner animation="border" role="status">
+          <span className="sr-only">Loading...</span>
+        </Spinner>
+      </div >
       } else{
         data=         
         <main>
@@ -63,19 +67,13 @@ scrape() {
       <div>
         <button  onClick={() => this.scrape()}>Scrape</button>
       </div>
-      <div>
-    <Spinner animation="border" role="status">
-      <span className="sr-only">Loading...</span>
-    </Spinner>
-  </div >
+
   </main>
 
       }
       
       return (
-        <main>
           {data}
-      </main>
     );
   }
 }
