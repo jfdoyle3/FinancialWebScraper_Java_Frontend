@@ -9,21 +9,29 @@ class ScraperPage extends Component {
   constructor(props){
   super(props);
   this.state={
-    stocks: []
- 
+    stocks: [],
+  //  loading: true
   };
   this.scrape = this.scrape.bind(this);
 }
 componentDidMount() {
   StockDataServices.retrieveStocks().then(
     (response) =>
- //   console.log(response.data));
-    this.setState({ stocks: response.data }));
+    console.log(response.data));
+  //  this.setState({ stocks: response.data,loading: false }));
 }
 scrape() {
 }
     render() {
-      return(
+      let data;
+      if (this.state.loading){
+        data=  <div>
+        <Spinner animation="border" role="status">
+          <span className="sr-only">Loading...</span>
+        </Spinner>
+      </div >
+      } else{
+        data=         
         <main>
         <div className="container">
         <table id="topfive" className="table">
@@ -63,8 +71,12 @@ scrape() {
 
   </main>
 
-       ) }
-
-    }
+      }
+      
+      return (
+          {data}
+    );
+  }
+}
 
 export default ScraperPage;
