@@ -52,6 +52,7 @@ scrape() {
                 <td>{stock.volume}</td>
                 <td>{stock.avgvol}</td>
                 <td>{stock.marketCap}</td>
+                <button  onClick={() => this.scrape()}>{stock.symbol} History</button>
               </tr>
                ))}
           </tbody>
