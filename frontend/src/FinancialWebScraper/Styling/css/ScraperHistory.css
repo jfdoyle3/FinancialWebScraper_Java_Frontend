@@ -1,7 +1,7 @@
 table{
     align-content: center;
     font-size:small;
-    border: 5px solid black;
+    border: 10px solid rgb(255, 0, 0);
     width: 100px;
 }
 

@@ -1,26 +1,26 @@
 import React, { Component } from "react";
 // import {Button} from 'react-bootstrap';
-import StockDataServices from "../API/StockDataServices.js";
+import StockHistoryDataServices from "../API/StockHistoryDataServices.js";
 import { Spinner } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import "../Styling/css/ScraperPage.css";
+import "../Styling/css/ScraperHistory.css";
 
 
 
-class ScraperPage extends Component {
+class ScraperHistory extends Component {
   constructor(props){
   super(props);
   this.state={
-    stocks: []
+    stockHistory: []
  
   };
   this.scrape = this.scrape.bind(this);
 }
 componentDidMount() {
-  StockDataServices.retrieveStocks().then(
+  StockHistoryDataServices.retrieveHistory().then(
     (response) =>
  //   console.log(response.data));
-    this.setState({ stocks: response.data }));
+    this.setState({ stockHistory: response.data }));
 }
 scrape() {
 }
@@ -43,17 +43,17 @@ scrape() {
             </tr>
           </thead>
           <tbody>
-            {this.state.stocks.map((stock) => (
+            {this.state.stockHistory.map((history) => (
               <tr>
-                <td>{stock.dateScraped}</td>
-                <td>{stock.symbol}</td>
-                <td>{stock.lastPrice}</td>
-                <td>{stock.priceChange}</td>
-                <td>{stock.changePercentage}</td>
-                <td>{stock.marketTime}</td>
-                <td>{stock.volume}</td>
-                <td>{stock.avgvol}</td>
-                <td>{stock.marketCap}</td>
+                <td>{history.dateScraped}</td>
+                <td>{history.symbol}</td>
+                <td>{history.lastPrice}</td>
+                <td>{history.priceChange}</td>
+                <td>{history.changePercentage}</td>
+                <td>{history.marketTime}</td>
+                <td>{history.volume}</td>
+                <td>{history.avgvol}</td>
+                <td>{history.marketCap}</td>
               </tr>
                ))}
           </tbody>
@@ -69,4 +69,4 @@ scrape() {
 
     }
 
-export default ScraperPage;
+export default ScraperHistory;
