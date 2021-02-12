@@ -3,6 +3,8 @@ import React, { Component } from "react";
 import StockDataServices from "../API/StockDataServices.js";
 import { Spinner } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import "../Styling/css/ScraperPage.css";
+
 
 
 class ScraperPage extends Component {
@@ -25,8 +27,8 @@ scrape() {
     render() {
       return(
         <main>
-        <div className="container">
-        <table id="topfive" className="table">
+        <div>
+        <table  class="table table-condensed table-striped" >
           <thead>
             <tr>
               <th>Date</th>
@@ -43,7 +45,7 @@ scrape() {
           <tbody>
             {this.state.stocks.map((stock) => (
               <tr>
-                <td>{stock.datestamp}</td>
+                <td>{stock.dateScraped}</td>
                 <td>{stock.symbol}</td>
                 <td>{stock.lastPrice}</td>
                 <td>{stock.priceChange}</td>
@@ -52,7 +54,6 @@ scrape() {
                 <td>{stock.volume}</td>
                 <td>{stock.avgvol}</td>
                 <td>{stock.marketCap}</td>
-                <button  onClick={() => this.scrape()}>{stock.symbol} History</button>
               </tr>
                ))}
           </tbody>

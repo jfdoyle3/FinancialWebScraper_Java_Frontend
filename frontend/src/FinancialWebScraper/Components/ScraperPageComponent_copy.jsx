@@ -9,7 +9,7 @@ class ScraperPage extends Component {
   constructor(props){
   super(props);
   this.state={
-    stocks: [],
+    stocks: []
   //  loading: true
   };
   this.scrape = this.scrape.bind(this);
@@ -17,8 +17,9 @@ class ScraperPage extends Component {
 componentDidMount() {
   StockDataServices.retrieveStocks().then(
     (response) =>
-    console.log(response.data));
+   console.log(response.data));
   //  this.setState({ stocks: response.data,loading: false }));
+   //  this.setState({ stocks: response.data }));
 }
 scrape() {
 }
@@ -51,7 +52,7 @@ scrape() {
           <tbody>
             {this.state.stocks.map((stock) => (
               <tr>
-                <td>{stock.datestamp}</td>
+                <td>{stock.dateScraped}</td>
                 <td>{stock.symbol}</td>
                 <td>{stock.lastPrice}</td>
                 <td>{stock.priceChange}</td>
@@ -60,6 +61,7 @@ scrape() {
                 <td>{stock.volume}</td>
                 <td>{stock.avgvol}</td>
                 <td>{stock.marketCap}</td>
+                <button  onClick={() => this.scrape()}>{stock.symbol} History</button>
               </tr>
                ))}
           </tbody>
