@@ -27,8 +27,9 @@ scrape() {
     render() {
       return(
         <main>
-        <div>
-        <table  class="table table-condensed table-striped" >
+        <div className="container">
+        <table id="scraper" class="table table-condensed table-striped" >
+         
           <thead>
             <tr>
               <th>Date</th>
