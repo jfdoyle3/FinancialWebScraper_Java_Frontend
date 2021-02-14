@@ -26,6 +26,7 @@ scrape() {
     render() {
       return(
         <main>
+        
          <Form inline>
         <NavDropdown title="Dropdown" id="basic-nav-dropdown">
         <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
@@ -38,6 +39,7 @@ scrape() {
         <Button variant="outline-info">Search</Button>
        
       </Form>
+     
         <div className="container">
         <table  id="history" class="table table-condensed table-striped" >
         
