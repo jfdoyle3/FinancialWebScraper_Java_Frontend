@@ -26,20 +26,18 @@ scrape() {
     render() {
       return(
         <main>
-        
+        <div>
          <Form inline>
-        <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-        <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-        <NavDropdown.Divider />
-        <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-      </NavDropdown>
+           <Form.Control as="select">
+           {this.state.stockHistory.map((history) => (
+               <option>{history.dateScraped}</option>
+           ))};
+          </Form.Control>
         <FormControl type="text" placeholder="Search" className="mr-sm-2" />
         <Button variant="outline-info">Search</Button>
        
       </Form>
-     
+     </div>
         <div className="container">
         <table  id="history" class="table table-condensed table-striped" >
         
@@ -68,6 +66,7 @@ scrape() {
                 <td>{history.volume}</td>
                 <td>{history.avgvol}</td>
                 <td>{history.marketCap}</td>
+                <button  onClick={() => this.scrape()}>{history.symbol} History</button>
               </tr>
                ))}
           </tbody>
