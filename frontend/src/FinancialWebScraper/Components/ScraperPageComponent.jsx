@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import {Button} from 'react-bootstrap';
+import {Button} from 'react-bootstrap';
 import StockDataServices from "../API/StockDataServices.js";
 import { Spinner } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -23,10 +23,17 @@ componentDidMount() {
     this.setState({ stocks: response.data }));
 }
 scrape() {
+  StockDataServices.scrapeSite().then(
+    (response) =>
+    this.setState({stocks:response.data}));
 }
     render() {
       return(
         <main>
+          <div className="container">
+          <Button  onClick={() => this.scrape()}>Scrape</Button>
+          </div>
+
         <div className="container">
         <table id="scraper" class="table table-condensed table-striped" >
          
