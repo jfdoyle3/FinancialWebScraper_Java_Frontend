@@ -10,10 +10,10 @@ class HistoryPageComponent extends Component {
   constructor(props){
   super(props);
   this.state={
-    stockHistory: []
- 
+    stockHistory: [],
+    searchSymbol:""
   };
-  this.scrape = this.scrape.bind(this);
+  this.findBySymbol = this.findBySymbol.bind(this);
 }
 componentDidMount() {
   HistoryDataServices.retrieveHistory().then(
@@ -21,7 +21,8 @@ componentDidMount() {
  //   console.log(response.data));
     this.setState({ stockHistory: response.data }));
 }
-scrape() {
+findBySymbol() {
+
 }
     render() {
       return(
@@ -33,7 +34,12 @@ scrape() {
                <option>{history.dateScraped}</option>
            ))};
           </Form.Control>
-        <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+        <FormControl  className="mr-sm-2" 
+                    type="text"
+                    name="username"
+                    value={this.state.username}
+                    onChange={this.handleChange} 
+                    />
         <Button variant="outline-info">Search</Button>
        
       </Form>
