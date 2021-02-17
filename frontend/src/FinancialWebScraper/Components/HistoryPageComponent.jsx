@@ -11,9 +11,17 @@ class HistoryPageComponent extends Component {
   super(props);
   this.state={
     stockHistory: [],
-    searchSymbol:""
+    symbol:"xxx"
   };
   this.findBySymbol = this.findBySymbol.bind(this);
+  this.handleChange = this.handleChange.bind(this);
+}
+
+handleChange(event) {
+  console.log(this.state);
+  // this.setState({
+  //   [event.target.name]: event.target.value,
+  // });
 }
 componentDidMount() {
   HistoryDataServices.retrieveHistory().then(
@@ -27,21 +35,24 @@ findBySymbol() {
     render() {
       return(
         <main>
-        <div>
+        <div id="search">
          <Form inline>
+           <div className="col 100">
            <Form.Control as="select">
            {this.state.stockHistory.map((history) => (
                <option>{history.dateScraped}</option>
            ))};
           </Form.Control>
+          </div>
+          <div className="col 500">
         <FormControl  className="mr-sm-2" 
                     type="text"
-                    name="username"
-                    value={this.state.username}
+                    name="symbol"
+                    value={this.state.searchSymbol}
                     onChange={this.handleChange} 
                     />
         <Button variant="outline-info">Search</Button>
-       
+       </div>
       </Form>
      </div>
         <div className="container">

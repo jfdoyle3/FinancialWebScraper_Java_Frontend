@@ -30,7 +30,7 @@ scrape() {
     render() {
       return(
         <main>
-          <div className="container">
+          <div id="scrape" className="col 500">
           <Button  onClick={() => this.scrape()}>Scrape</Button>
           </div>
 
