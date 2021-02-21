@@ -35,7 +35,7 @@ findBySymbol() {
     render() {
       return(
         <main>
-        {/* <div id="search">
+        <div id="search">
          <Form inline>
            <div className="col 100">
            <Form.Control as="select">
@@ -43,7 +43,7 @@ findBySymbol() {
                <option>{history.dateScraped}</option>
            ))};
           </Form.Control>
-          </div> */}
+          </div>
           <div className="col 500">
         <FormControl  className="mr-sm-2" 
                     type="text"
