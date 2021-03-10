@@ -11,11 +11,11 @@ class HistoryPageComponent extends Component {
   super(props);
   this.state={
     stockHistory: [],
-    symbol:"xxx"
+    value: ''
   };
-  this.findBySymbol = this.findBySymbol.bind(this);
+ 
   this.handleChange = this.handleChange.bind(this);
-}
+  this.handleSubmit=this.handleSubmit(this);}
 
 handleChange(event) {
   console.log(this.state);
@@ -29,8 +29,9 @@ componentDidMount() {
  //   console.log(response.data));
     this.setState({ stockHistory: response.data }));
 }
-findBySymbol() {
-
+handleSubmit(event) {
+  alert('A name was submitted: ' + this.state.value);
+  event.preventDefault();
 }
     render() {
       return(
@@ -48,10 +49,10 @@ findBySymbol() {
         <FormControl  className="mr-sm-2" 
                     type="text"
                     name="symbol"
-                    value={this.state.searchSymbol}
+                    value={this.state.value}
                     onChange={this.handleChange} 
                     />
-        <Button variant="outline-info">Search</Button>
+         <input type="submit" value="Submit" />
        </div>
       </Form>
      </div>
