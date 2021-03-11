@@ -15,7 +15,7 @@ class HistoryPageComponent extends Component {
   };
  
   this.handleChange = this.handleChange.bind(this);
-  this.handleSubmit=this.handleSubmit(this);}
+ // this.handleSubmit=this.handleSubmit(this);}
 
 handleChange(event) {
   console.log(this.state);
@@ -29,10 +29,10 @@ componentDidMount() {
  //   console.log(response.data));
     this.setState({ stockHistory: response.data }));
 }
-handleSubmit(event) {
-  alert('A name was submitted: ' + this.state.value);
-  event.preventDefault();
-}
+// handleSubmit(event) {
+//   alert('A name was submitted: ' + this.state.value);
+//   event.preventDefault();
+// }
     render() {
       return(
         <main>
