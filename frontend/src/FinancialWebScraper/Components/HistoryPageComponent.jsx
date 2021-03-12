@@ -13,26 +13,15 @@ class HistoryPageComponent extends Component {
     stockHistory: [],
     value: ''
   };
- 
-  this.handleChange = this.handleChange.bind(this);
- // this.handleSubmit=this.handleSubmit(this);}
+};
 
-handleChange(event) {
-  console.log(this.state);
-  // this.setState({
-  //   [event.target.name]: event.target.value,
-  // });
-}
 componentDidMount() {
   HistoryDataServices.retrieveHistory().then(
     (response) =>
  //   console.log(response.data));
     this.setState({ stockHistory: response.data }));
-}
-// handleSubmit(event) {
-//   alert('A name was submitted: ' + this.state.value);
-//   event.preventDefault();
-// }
+};
+
     render() {
       return(
         <main>
@@ -93,23 +82,7 @@ componentDidMount() {
       <div>
       
       </div>
-      <Pagination>
-  <Pagination.First />
-  <Pagination.Prev />
-  <Pagination.Item>{1}</Pagination.Item>
-  <Pagination.Ellipsis />
-
-  <Pagination.Item>{10}</Pagination.Item>
-  <Pagination.Item>{11}</Pagination.Item>
-  <Pagination.Item active>{12}</Pagination.Item>
-  <Pagination.Item>{13}</Pagination.Item>
-  <Pagination.Item disabled>{14}</Pagination.Item>
-
-  <Pagination.Ellipsis />
-  <Pagination.Item>{20}</Pagination.Item>
-  <Pagination.Next />
-  <Pagination.Last />
-</Pagination>
+ 
   </main>
 
        ) }
