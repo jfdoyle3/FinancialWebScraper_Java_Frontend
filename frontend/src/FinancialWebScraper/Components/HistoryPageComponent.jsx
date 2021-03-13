@@ -13,6 +13,9 @@ class HistoryPageComponent extends Component {
     stockHistory: [],
     value: ''
   };
+
+  this.handleChange = this.handleChange.bind(this);
+  this.handleSubmit=this.handleSubmit(this);
 };
 
 componentDidMount() {
