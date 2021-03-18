@@ -30,11 +30,11 @@ componentDidMount() {
         <main>
         <div id="search">
          <Form inline>
-           <div className="col 100">
+           {/* <div className="col 100">
            <Form.Control as="select">
            {this.state.stockHistory.map((history) => (
                <option>{history.dateScraped}</option>
-           ))};
+           ))}; */}
           </Form.Control>
           </div>
           <div className="col 500">
