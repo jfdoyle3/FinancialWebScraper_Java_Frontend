@@ -1,10 +1,8 @@
 import React, { Component } from "react";
-import {Button, Spinner, Pagination, Form, FormControl, NavDropdown} from 'react-bootstrap';
+import {Button, Form, FormControl, NavDropdown} from 'react-bootstrap';
 import HistoryDataServices from "../API/HistoryDataServices.js";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../Styling/css/HistoryPage.css";
-
-
 
 class HistoryPageComponent extends Component {
   constructor(props){
@@ -15,36 +13,54 @@ class HistoryPageComponent extends Component {
   };
 
   this.handleChange = this.handleChange.bind(this);
-  this.handleSubmit=this.handleSubmit(this);
+  this.handleSubmit=this.handleSubmit.bind(this);
 };
+
+handleChange(event) {
+  this.setState({value: event.target.value});
+}
+
+handleSubmit(event) { 
+  event.preventDefault();
+  const value={
+   value: this.state.value
+  }
+  HistoryDataServices.findBySymbol(value).then(
+    (response)=>
+    this.setState({stockHistory: response.data}))
+
+ };
 
 componentDidMount() {
   HistoryDataServices.retrieveHistory().then(
     (response) =>
- //   console.log(response.data));
-    this.setState({ stockHistory: response.data }));
+   this.setState({ stockHistory: response.data }))
 };
-
     render() {
+      const refreshPage = ()=>{
+        window.location.reload();
+     };
       return(
         <main>
         <div id="search">
-         <Form inline>
-           {/* <div className="col 100">
-           <Form.Control as="select">
+         <Form inline onSubmit={this.handleSubmit}>
+           <div className="col 100">
+           <Button  onClick={refreshPage}> <span>Display History</span> </Button> 
+           {/* <Form.Control as="select">
            {this.state.stockHistory.map((history) => (
                <option>{history.dateScraped}</option>
-           ))}; */}
-          </Form.Control>
+           ))};
+          </Form.Control> */}
           </div>
           <div className="col 500">
+           
         <FormControl  className="mr-sm-2" 
                     type="text"
                     name="symbol"
                     value={this.state.value}
                     onChange={this.handleChange} 
                     />
-         <input type="submit" value="Submit" />
+         <Button type="submit">  <span>Search</span> </Button>
        </div>
       </Form>
      </div>
@@ -76,7 +92,7 @@ componentDidMount() {
                 <td>{history.volume}</td>
                 <td>{history.avgvol}</td>
                 <td>{history.marketCap}</td>
-                <button  onClick={() => this.scrape()}>{history.symbol} History</button>
+                {/* <button  onClick={() => this.scrape()}>{history.symbol} History</button> */}
               </tr>
                ))}
           </tbody>
