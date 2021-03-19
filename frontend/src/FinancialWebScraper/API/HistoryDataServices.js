@@ -6,7 +6,7 @@ class StockHistoryDataServices {
     return axios.get(`${API_URL_HISTORY}/`);
     }
   findBySymbol(symbol){
-    return axios.get(`${API_URL_HISTORY}/symbol/${symbol}`);
+    return axios.get(`${API_URL_HISTORY}/symbol/${symbol.value}`);
   }
 
 }
